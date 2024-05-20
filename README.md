@@ -2,6 +2,7 @@
  - [サービス概要](#サービス概要)
  - [機能候補](#機能候補)
  - [画面遷移図](#画面遷移図)
+ - [ER図](#ER図)
 ## サービス概要
 京都の魅力を「タグ」から発見できるサービスです。  
 
@@ -113,7 +114,7 @@
 　・マイタグを含んだ投稿があった場合通知される（マイページ、SNS）
 - 混雑状況の表示（API）  
 - 共有  
-　・マイタグやマイスポットをSNSで共有する
+　・タグやスポットをSNSで共有する
 - マイプラン作成  
 　・マイスポットからプラン作成   
 - お問い合わせページ
@@ -168,3 +169,5 @@ X、LINE
 ## 画面遷移図
 https://www.figma.com/file/2kJzaE9It4liACNfrNLKzB/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=32%3A3905&mode=dev&t=78A8QbKNK8gqtfgu-1  
 
+## ER図
+https://drive.google.com/file/d/1rRA6tqRtJzOvMBBtqRzVc7Oks49-yWQQ/view?usp=sharing
