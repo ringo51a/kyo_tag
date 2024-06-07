@@ -1,12 +1,12 @@
 <header>
-  <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #cadbdf;">
+  <nav class="navbar navbar-expand-lg" style="background-color: #cadbdf;">
     <div class="container-fluid">
     <%= link_to 'HOME', root_path, class: "navbar-brand"%>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">投稿作成</a>
           <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
-          <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete }, data: { turbo: false } %>
+          <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
         </li>
       </ul>
 
