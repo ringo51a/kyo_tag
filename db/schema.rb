@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_10_044631) do
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
-    t.datetime "published_at"
+    t.datetime "published_at", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
