@@ -4,7 +4,7 @@
     <%= link_to 'HOME', root_path, class: "navbar-brand"%>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">投稿作成</a>
+          <%= link_to '投稿作成', new_post_path, class: "nav-link active", "aria-current" => "page"  %>
           <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
           <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
         </li>
