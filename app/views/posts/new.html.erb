@@ -15,6 +15,12 @@
           <%= f.label :published_at %>
           <%= f.date_field :published_at, class: "form-control" %>
         </div>
+        <div class="mb-3">
+          <%= f.label :post_image %>
+          <%= f.file_field :post_image, class: "form-control", accept: 'image/*' %>
+          <%= f.hidden_field :post_image_cache %>
+          <%= image_tag @post.post_image.url if @post.post_image? %>
+        </div>
         <%= f.submit "投稿する", class: "btn btn-primary" %>
       <% end %>
     </div>
