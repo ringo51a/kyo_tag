@@ -20,7 +20,7 @@
           <li><i class="bi bi-person"></i><%= post.user.name %></li>
           <li><i class="bi bi-calendar"></i><%= post.published_at.strftime("%Y/%m/%d") %></li>
         </ul>
-        <p class="card-text">本文</p>
+        <p class="card-text"><%= simple_format(h(post.body)) %></p>
       </div>
     </div>
   </div>
