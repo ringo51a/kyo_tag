@@ -14,7 +14,7 @@
                 <li class="list-inline-item"><%= "by #{@post.user.name}" %></li>
                 <li class="list-inline-item"><%= @post.published_at.strftime("%Y/%m/%d") %></li>
               </ul>
-              <% if current_user.own?(@post) %>
+              <% if current_user && current_user.own?(@post) %>
                 <div class='d-flex justify-content-end'>
                   <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}" do %>
                   <i class='bi bi-pencil-fill'></i>
