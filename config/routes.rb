@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'static_pages#top'
   resources :users, only: %i[new create]
   resources :posts, only: %i[index new create show edit update destroy]
+  resources :tags, only: %i[index]
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
