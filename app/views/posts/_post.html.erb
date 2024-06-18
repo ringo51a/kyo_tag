@@ -22,6 +22,9 @@
           <li><i class="bi bi-person"></i><%= post.user.name %></li>
           <li><i class="bi bi-calendar"></i><%= post.published_at.strftime("%Y/%m/%d") %></li>
         </ul>
+        <div>
+          <%= render post.tags %>
+        </div>
         <p class="card-text"><%= simple_format(h(post.body)) %></p>
       </div>
     </div>
