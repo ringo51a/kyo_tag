@@ -1,9 +1,9 @@
 <div class="container pt-3">
-  <div class="row flex-column">
+  <div class="row">
     <div class="col-12">
       <div class="row">
         <% if @tags.present? %>
-          <div class="col-auto mb-2">
+          <div class="col-auto d-flex flex-column" style="height: 200px;">
             <%= render @tags %>
           </div>
         <% else %>
