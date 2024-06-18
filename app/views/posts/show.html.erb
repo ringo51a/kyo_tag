@@ -26,6 +26,9 @@
               <% end %>
             </div>
           </div>
+          <div>
+            <%= render @post.tags %>
+          </div>
           <p><%= simple_format(h(@post.body)) %></p>
         </div>
       </article>

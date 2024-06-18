@@ -8,6 +8,8 @@ class Post < ApplicationRecord
 
   mount_uploader :post_image, ImageUploader
 
+  scope :with_tag, ->(tag_name) { joins(:tags).where(tags: { name: tag_name }) }
+
   def save_with_tags(tag_names:)
     ActiveRecord::Base.transaction do
       self.tags = tag_names.map { |name| Tag.find_or_initialize_by(name: name.strip) }
