@@ -12,7 +12,7 @@ class PostsController < ApplicationController
               Post.all
             end
     @posts = posts.includes(:user).order(created_at: :desc)
-  end  
+  end
 
   def create
     @post = current_user.posts.build(post_params)

@@ -1,0 +1,15 @@
+<div class="container pt-3">
+  <div class="row flex-column">
+    <div class="col-12">
+      <div class="row">
+        <% if @tags.present? %>
+          <div class="col-auto mb-2">
+            <%= render @tags %>
+          </div>
+        <% else %>
+          <div class="mb-3">タグがありません</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
