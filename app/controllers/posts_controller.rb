@@ -11,12 +11,14 @@ class PostsController < ApplicationController
             else
               Post.all
             end
-    @posts = posts.includes(:user).order(created_at: :desc)
+    @posts = posts.includes(:user, :place).order(created_at: :desc)
   end
 
   def create
     @post = current_user.posts.build(post_params)
-    if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
+    place_id = params.dig(:post, :place_id)
+    place_name = params.dig(:post, :place_name)
+    if @post.save_with_tags_and_place(tag_names: params.dig(:post, :tag_names).split(',').uniq, place_id: place_id, place_name: place_name)
       redirect_to posts_path, success: t('defaults.flash_message.created', item: Post.model_name.human)
     else
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Post.model_name.human)
@@ -35,7 +37,9 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     @post.assign_attributes(post_params)
-    if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
+    place_id = params.dig(:post, :place_id)
+    place_name = params.dig(:post, :place_name)
+    if @post.save_with_tags_and_place(tag_names: params.dig(:post, :tag_names).split(',').uniq, place_id: place_id, place_name: place_name)
       redirect_to post_path(@post)
     else
       render :edit, status: :unprocessable_entity
@@ -51,7 +55,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :published_at, :post_image)
+    params.require(:post).permit(:title, :body, :published_at, :post_image, :post_image_cache, place_attributes: [:name, :place_id])
   end
-
 end

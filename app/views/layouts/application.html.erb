@@ -19,5 +19,27 @@
     <%= render 'shared/flash_message' %>
     <%= yield %>
     <%= render 'shared/footer' %>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initAutocomplete" async defer></script>
+    <script>
+      var autocomplete;
+      function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(
+          document.getElementById('autocomplete-input'),
+          { types: ['geocode'] }
+        );
+        autocomplete.addListener('place_changed', onPlaceChanged);
+      }
+
+      function onPlaceChanged() {
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
+          console.log("No details available for input: '" + place.name + "'");
+          return;
+        }
+        document.getElementById('autocomplete-input').value = place.name;
+        document.getElementById('place-id').value = place.place_id;
+      }
+    </script>
   </body>
 </html>

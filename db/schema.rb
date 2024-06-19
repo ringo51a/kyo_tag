@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_17_130222) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_19_071545) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "places", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "place_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_places_on_place_id", unique: true
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
@@ -22,6 +30,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_17_130222) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "post_image"
+    t.bigint "place_id", null: false
+    t.index ["place_id"], name: "index_posts_on_place_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -52,6 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_17_130222) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "posts", "places"
   add_foreign_key "posts", "users"
   add_foreign_key "taggings", "posts"
   add_foreign_key "taggings", "tags"
