@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :posts, only: %i[index new create show edit update destroy]
   resources :tags, only: %i[index]
+  resources :places, only: %i[index show]
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'

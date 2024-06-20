@@ -1,0 +1,14 @@
+<div class="container pt-3">
+  <div class="row">
+  <h1><%= @place.name %></h1>
+    <div class="col-12">
+      <div class="row">
+        <% if @place.posts.present? %>
+          <%= render @posts %>
+        <% else %>
+          <div class="mb-3">投稿はありません</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

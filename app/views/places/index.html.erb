@@ -1,0 +1,16 @@
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <% if @places.present? %>
+          <div class="col-auto d-flex flex-column" style="height: 200px;">
+            <%= render @places %>
+          </div>
+        <% else %>
+          <div class="mb-3">投稿されたスポットはありません</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
