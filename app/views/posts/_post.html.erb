@@ -25,7 +25,7 @@
         <div>
           <%= render post.tags %>
         </div>
-        <p class="card-text"><%= simple_format(h(post.body)) %></p>
+        <p class="card-text"><i class="bi bi-geo-alt"></i><%= link_to post.place.name, "#" %></p>
       </div>
     </div>
   </div>
