@@ -23,22 +23,24 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initAutocomplete" async defer></script>
     <script>
       function initAutocomplete() {
-        var input = document.getElementById('autocomplete-input');
-        var autocomplete = new google.maps.places.Autocomplete(input, {
-          types: ['establishment'],  // 施設
-          componentRestrictions: { country: 'jp' },
-          fields: ['place_id', 'geometry', 'name']  // 必要なフィールドを指定
-        });
+        var options = {
+          types: ['establishment']  // establishment を追加して観光スポットも候補に含める
+        };
+        autocomplete = new google.maps.places.Autocomplete(
+          document.getElementById('autocomplete-input'),
+          options
+        );
+        autocomplete.addListener('place_changed', onPlaceChanged);
+      }
 
-        autocomplete.addListener('place_changed', function() {
+      function onPlaceChanged() {
           var place = autocomplete.getPlace();
           if (!place.geometry) {
             console.log("No details available for input: '" + place.name + "'");
             return;
           }
-          document.getElementById('place-name').value = place.name;
-          document.getElementById('place-id').value = place.place_id;
-        });
+        document.getElementById('autocomplete-input').value = place.name;
+        document.getElementById('place-id').value = place.place_id;
       }
     </script>
   </body>
