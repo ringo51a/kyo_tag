@@ -8,22 +8,22 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-10.times do
-  User.create!(
-    name: Faker::Name.last_name,
-    email: Faker::Internet.unique.email,
-    password: "password",
-    password_confirmation: "password"
-  )
-end
+# 10.times do
+#   User.create!(
+#     name: Faker::Name.last_name,
+#     email: Faker::Internet.unique.email,
+#     password: "password",
+#     password_confirmation: "password"
+#   )
+# end
 
-user_ids = User.ids
+# user_ids = User.ids
 
-20.times do |index|
-  user = User.find(user_ids.sample)
-  user.posts.create!(
-    title: "タイトル#{index}",
-    body: "本文#{index}",
-    published_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
-  )
-end
+# 20.times do |index|
+#   user = User.find(user_ids.sample)
+#   user.posts.create!(
+#     title: "タイトル#{index}",
+#     body: "本文#{index}",
+#     published_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
+#   )
+# end
