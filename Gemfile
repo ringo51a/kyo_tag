@@ -82,3 +82,5 @@ gem 'carrierwave'
 gem 'sorcery'
 
 gem 'faker'
+
+gem 'fog-aws'
