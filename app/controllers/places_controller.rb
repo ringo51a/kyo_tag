@@ -17,5 +17,6 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @posts = @place.posts
+    @tags = @posts.map(&:tags).flatten.uniq
   end
 end
