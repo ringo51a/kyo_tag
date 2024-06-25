@@ -1,10 +1,21 @@
 <div class="container pt-3">
   <div class="row">
-  <h1><%= @place.name %></h1>
+  <h1 class="mb-4"><%= @place.name %></h1>
     <div class="col-12">
       <div class="row">
         <% if @place.posts.present? %>
-          <%= render @posts %>
+          <div class="row">
+            <h2>タグ</h2>
+            <div class="col-auto" style="height: 200px;">
+              <%= render @tags %>
+            </div>
+          </div>
+          <div class="row">
+            <h2>投稿</h2>
+            <% @place.posts.each do |post| %>
+              <%= render partial: 'places/custom_post', locals: { post: post } %>
+            <% end %>
+          </div>
         <% else %>
           <div class="mb-3">投稿はありません</div>
         <% end %>
